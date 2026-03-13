@@ -104,14 +104,30 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es'
+
+# settings.py
+
+# Cambiamos de 'console' a 'smtp'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+# Tu dirección de Gmail
+EMAIL_HOST_USER = 'eddyuziel@gmail.com'
+# ¡IMPORTANTE! No es tu contraseña normal, es una "Contraseña de aplicación"
+EMAIL_HOST_PASSWORD = 'mbmd emgu nzph lakp'
+
+DEFAULT_FROM_EMAIL = 'Nombre de tu Proyecto <eddyuziel@gmail.com>'
+
+
 
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
 USE_TZ = True
-
+EMAIL_CHARSET = 'utf-8'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
@@ -120,7 +136,8 @@ STATIC_URL = 'static/'
 
 from django.urls import reverse_lazy
 LOGIN_URL = reverse_lazy('login')
-LOGIN_REDIRECT_URL = reverse_lazy('login')
+LOGIN_REDIRECT_URL = reverse_lazy('inicio')
 
 LOGOUT_URL = reverse_lazy('login')
 LOGOUT_REDIRECT_URL = reverse_lazy('login')
+
