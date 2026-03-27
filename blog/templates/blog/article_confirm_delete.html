@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Eliminar Articulo{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card card-custom">
+            <div class="card-header card-header-custom bg-danger">
+                <h3 class="mb-0">
+                    <i class="bi bi-exclamation-triangle"></i> Confirmar Eliminacion
+                </h3>
+            </div>
+            <div class="card-body p-4 text-center">
+                <p class="mb-4">Estas seguro de que deseas eliminar el articulo <strong>"{{ article.title }}"</strong>?</p>
+                <p class="text-muted">Esta accion no se puede deshacer.</p>
+                
+                <form method="post" class="mt-4">
+                    {% csrf_token %}
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-danger">
+                            <i class="bi bi-trash"></i> Si, eliminar
+                        </button>
+                        <a href="{% url 'article_list' %}" class="btn btn-outline-secondary">
+                            <i class="bi bi-x-lg"></i> Cancelar
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
